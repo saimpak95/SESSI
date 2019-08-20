@@ -1,0 +1,27 @@
+﻿@model SESSI.Models.HomeGallery
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Dashboard.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Gallery</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImagePath)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a href="~/HomeGalleries/Edit/@Model.ID" style="color:seagreen">EDIT</a> |
+    <a href="~/HomeGalleries/Index" style="color:seagreen">BACK TO LIST</a>
+</p>

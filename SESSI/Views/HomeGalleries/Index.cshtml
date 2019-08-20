@@ -1,0 +1,33 @@
+﻿@model IEnumerable<SESSI.Models.HomeGallery>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Dashboard.cshtml";
+}
+<br />
+<div class="h4 text-center" style="color:seagreen">HOME GALLERY</div>
+<p>
+    <a href="~/HomeGalleries/Create" style="color:seagreen">CREATE NEW</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImagePath)
+        </td>
+        <td>
+            <a href="~/HomeGalleries/Edit/@item.ID" style="color:seagreen">EDIT</a> |
+            <a href="~/HomeGalleries/Details/@item.ID" style="color:seagreen">DETAILS</a> |
+            <a href="~/HomeGalleries/Delete/@item.ID" style="color:seagreen">DELETE</a>
+        </td>
+    </tr>
+}
+
+</table>

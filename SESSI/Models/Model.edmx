@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DatabaseOfSessiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Ads">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameFile" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MESSENGER NAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MESSENGER EMAIL" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="MESSAGE" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DownloadGeneral">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameFile" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DownloadTender">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameFile" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HomeBanner">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImagePath" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HomeGallery">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImagePath" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HomeTeam">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImagePath" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'E:\SESSI\SESSI\APP_DATA\DATABASEOFSESSI.MDF.dbo.OurTeamMember' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="OurTeamMember">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="MEMBER NAME" />
+            <PropertyRef Name="MEMBER POST" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MEMBER NAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MEMBER POST" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="DatabaseOfSessiModelStoreContainer">
+          <EntitySet Name="Ads" EntityType="Self.Ads" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DownloadGeneral" EntityType="Self.DownloadGeneral" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DownloadTender" EntityType="Self.DownloadTender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HomeBanner" EntityType="Self.HomeBanner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HomeGallery" EntityType="Self.HomeGallery" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HomeTeam" EntityType="Self.HomeTeam" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OurTeamMember" EntityType="Self.OurTeamMember" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [OurTeamMember].[ID] AS [ID], 
+    [OurTeamMember].[MEMBER NAME] AS [MEMBER NAME], 
+    [OurTeamMember].[MEMBER POST] AS [MEMBER POST]
+    FROM [dbo].[OurTeamMember] AS [OurTeamMember]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DatabaseOfSessiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Ad">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameFile" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MESSENGER_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MESSENGER_EMAIL" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MESSAGE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DownloadGeneral">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameFile" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DownloadTender">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameFile" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HomeBanner">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HomeGallery">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HomeTeam">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OurTeamMember">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="MEMBER_NAME" />
+            <PropertyRef Name="MEMBER_POST" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MEMBER_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MEMBER_POST" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="DatabaseOfSessiEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Ads" EntityType="Self.Ad" />
+          <EntitySet Name="Contacts" EntityType="Self.Contact" />
+          <EntitySet Name="DownloadGenerals" EntityType="Self.DownloadGeneral" />
+          <EntitySet Name="DownloadTenders" EntityType="Self.DownloadTender" />
+          <EntitySet Name="HomeBanners" EntityType="Self.HomeBanner" />
+          <EntitySet Name="HomeGalleries" EntityType="Self.HomeGallery" />
+          <EntitySet Name="HomeTeams" EntityType="Self.HomeTeam" />
+          <EntitySet Name="OurTeamMembers" EntityType="Self.OurTeamMember" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DatabaseOfSessiModelStoreContainer" CdmEntityContainer="DatabaseOfSessiEntities1">
+          <EntitySetMapping Name="Ads">
+            <EntityTypeMapping TypeName="DatabaseOfSessiModel.Ad">
+              <MappingFragment StoreEntitySet="Ads">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NameFile" ColumnName="NameFile" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="DatabaseOfSessiModel.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MESSENGER_NAME" ColumnName="MESSENGER NAME" />
+                <ScalarProperty Name="MESSENGER_EMAIL" ColumnName="MESSENGER EMAIL" />
+                <ScalarProperty Name="MESSAGE" ColumnName="MESSAGE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DownloadGenerals">
+            <EntityTypeMapping TypeName="DatabaseOfSessiModel.DownloadGeneral">
+              <MappingFragment StoreEntitySet="DownloadGeneral">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NameFile" ColumnName="NameFile" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DownloadTenders">
+            <EntityTypeMapping TypeName="DatabaseOfSessiModel.DownloadTender">
+              <MappingFragment StoreEntitySet="DownloadTender">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NameFile" ColumnName="NameFile" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HomeBanners">
+            <EntityTypeMapping TypeName="DatabaseOfSessiModel.HomeBanner">
+              <MappingFragment StoreEntitySet="HomeBanner">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HomeGalleries">
+            <EntityTypeMapping TypeName="DatabaseOfSessiModel.HomeGallery">
+              <MappingFragment StoreEntitySet="HomeGallery">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HomeTeams">
+            <EntityTypeMapping TypeName="DatabaseOfSessiModel.HomeTeam">
+              <MappingFragment StoreEntitySet="HomeTeam">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OurTeamMembers">
+            <EntityTypeMapping TypeName="DatabaseOfSessiModel.OurTeamMember">
+              <MappingFragment StoreEntitySet="OurTeamMember">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MEMBER_NAME" ColumnName="MEMBER NAME" />
+                <ScalarProperty Name="MEMBER_POST" ColumnName="MEMBER POST" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

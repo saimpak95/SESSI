@@ -1,0 +1,36 @@
+﻿@model SESSI.Models.HomeBanner
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/Dashboard.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm("Create","HomeBanners",FormMethod.Post,new { enctype="multipart/form-data"}))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>HomeBanner</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.ImagePath, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" class="form-control" name="ImagePath"/>
+                @Html.ValidationMessageFor(model => model.ImagePath, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" name="CreateHomeBanner" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    <a href="~/HomeBanners/Index" style="color:seagreen">BACK TO LIST</a> 
+</div>

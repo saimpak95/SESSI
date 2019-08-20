@@ -1,0 +1,35 @@
+﻿@model SESSI.Models.OurTeamMember
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Dashboard.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>OurTeamMember</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_POST)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_POST)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a href="~/OurTeamMembers/Edit/@Model.ID" style="color:seagreen">EDIT</a> |
+    <a href="~/OurTeamMembers/Index" style="color:seagreen">BACK TO LIST</a>
+</p>
